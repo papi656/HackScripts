@@ -3,8 +3,10 @@
 ##script.py
 
 ##Dependencies
-  - requests
-  - BeautifulSoup
+- requests
+`pip install requests`
+- BeautifulSoup
+`pip install beautifulsoup4`
 
 It downloads all the videos of series from [Index of series](http://dl.sv-mov.in/series/)
 
