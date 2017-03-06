@@ -3,14 +3,14 @@
 ##script.py
 
 ##Dependencies
-  -requests
-  -BeautifulSoup
+  - requests
+  - BeautifulSoup
 
 It downloads all the videos of series from [Index of series](http://dl.sv-mov.in/series/)
 
 >For example, if you need to download Silicon Valley
 
-'python script.py http://dl.sv-mov.in/series/silicon-valley/'
+`python script.py http://dl.sv-mov.in/series/silicon-valley/`
 
 >the argument is the link of the page displaying links for all the videos
 
