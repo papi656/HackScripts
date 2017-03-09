@@ -2,16 +2,28 @@ from bs4 import BeautifulSoup as beauty
 import requests
 import os
 import sys
+import argparse 
 
 def getting_url():
-    r = requests.get(sys.argv[1])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--season", help="If you need to download only specific season", action="store")
+    parser.add_argument("-l", "--link", help="The path of the series", action="store")
+    args = parser.parse_args()
+    r = requests.get(args.link)
     soup = beauty(r.content, 'html.parser')
     links = soup.find_all("a")
     urls = []
-    for i in range(len(links)):
-        val = links[i]['href']
-        if '.mkv' in val:
-            urls.append(val)
+    if args.season:
+        season = 'S0' + args.season
+        for i in range(len(links)):
+            val = links[i]['href']
+            if '.mkv' and season in val:
+                urls.append(args.link + val)
+    else: 
+        for i in range(len(links)):
+            val = links[i]['href']
+            if '.mkv' in val:
+                urls.append(args.link + val)
     return urls
 
 
@@ -45,8 +57,7 @@ def download_file(url):
 def main():
     urls = getting_url()
     for i in range(len(urls)):
-        urlToDownload = sys.argv[1] + urls[i]
-        fileName = download_file(urlToDownload)
+        fileName = download_file(urls[i])
         print (fileName, " Downloaded\n")
 
 if __name__ == "__main__":

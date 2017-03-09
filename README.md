@@ -4,17 +4,29 @@
 
 ##Dependencies
 - requests
+
 `pip install requests`
 - BeautifulSoup
+
 `pip install beautifulsoup4`
 
 It downloads all the videos of series from [Index of series](http://dl.sv-mov.in/series/)
 
 >For example, if you need to download Silicon Valley
 
-`python script.py http://dl.sv-mov.in/series/silicon-valley/`
+`python script.py -l http://dl.sv-mov.in/series/silicon-valley/`
 
 >the argument is the link of the page displaying links for all the videos
+
+###Arguments
+- ` -l or --link`
+link for the required series
+- ` -s or --season (optional)`
+season number if you need to download specific season
+
+> For example, if your need to download only the season 2 of Silicon Valley
+
+`python script.py -l http://dl.sv-mov.in/series/silicon-valley/ -s 2`
 
 ###Improvements needed
   - Size of file already downloaded is printed everytime a new chunk of data comes, this need to be changed. Probably displayed every few seconds or a progress bar would be even better
